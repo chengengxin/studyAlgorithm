@@ -28,12 +28,11 @@ void merge(int* array, int beginIndex, int middleIndex, int endIndex) {
 
 	while (array_itr <= endIndex) {
 		if (left[left_itr] <= right[right_itr]) {
-			array[array_itr] = left[left_itr++];
+			array[array_itr++] = left[left_itr++];
 		}
 		else {
-			array[array_itr] = right[right_itr++];
-		}
-		++array_itr;
+			array[array_itr++] = right[right_itr++];
+		}		
 	}
 
 	delete[] left;
@@ -96,13 +95,12 @@ void inversionMerge(int * array, int beginIndex, int middleIndex, int endIndex, 
 
 	while (array_itr <= endIndex) {
 		if (left[left_itr] <= right[right_itr]) {
-			array[array_itr] = left[left_itr++];
+			array[array_itr++] = left[left_itr++];
 		}
 		else {
-			array[array_itr] = right[right_itr++];
+			array[array_itr++] = right[right_itr++];
 			inversionNum += leftN  - left_itr;
 		}
-		++array_itr;
 	}
 
 	delete[] left;
