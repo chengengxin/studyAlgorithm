@@ -1,13 +1,15 @@
-// studyAlgorithm.cpp : ¶¨Òå¿ØÖÆÌ¨Ó¦ÓÃ³ÌĞòµÄÈë¿Úµã¡£
+// studyAlgorithm.cpp : å®šä¹‰æ§åˆ¶å°åº”ç”¨ç¨‹åºçš„å…¥å£ç‚¹ã€‚
 //
 
 #include "stdafx.h"
 #include "algorithms/merge.h"
+#include "algorithms/heap.h"
 
 int main()
 {
 	//test_merge_sort1();
-	test_inversion();
+	//test_inversion();
+	testHeapSort();
 	getchar();
     return 0;
 }

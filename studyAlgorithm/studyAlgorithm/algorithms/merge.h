@@ -1,4 +1,7 @@
+//归并排序 和 求逆序数对个数
+
 #pragma once
+
 
 void merge(int* array, int beginIndex, int middleIndex, int endIndex);
 

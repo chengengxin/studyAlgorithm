@@ -30,6 +30,9 @@
     <ClInclude Include="algorithms\merge.h">
       <Filter>algorithms</Filter>
     </ClInclude>
+    <ClInclude Include="algorithms\heap.h">
+      <Filter>algorithms</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -39,6 +42,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="algorithms\merge.cpp">
+      <Filter>algorithms</Filter>
+    </ClCompile>
+    <ClCompile Include="algorithms\heap.cpp">
       <Filter>algorithms</Filter>
     </ClCompile>
   </ItemGroup>
