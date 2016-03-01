@@ -16,6 +16,9 @@
     <Filter Include="algorithms">
       <UniqueIdentifier>{ffd1f578-0ab0-41b5-ba95-d28126a048c7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="common">
+      <UniqueIdentifier>{41fcaf63-67f8-4fa8-99a6-c1f972dd21f7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -33,6 +36,9 @@
     <ClInclude Include="algorithms\heap.h">
       <Filter>algorithms</Filter>
     </ClInclude>
+    <ClInclude Include="common\tools.h">
+      <Filter>common</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -46,6 +52,9 @@
     </ClCompile>
     <ClCompile Include="algorithms\heap.cpp">
       <Filter>algorithms</Filter>
+    </ClCompile>
+    <ClCompile Include="common\tools.cpp">
+      <Filter>common</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

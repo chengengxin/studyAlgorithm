@@ -15,7 +15,7 @@ int right(int i) {
 	return (i << 1) + 2;
 }
 
-void maxHeapify(int * array, int n, int i) {
+void maxHeapify(int * array, int n, int i) {    
 	int iteratorLeft = left(i);
 	int iteratorRight = right(i);
 	int largest = i;
@@ -25,12 +25,10 @@ void maxHeapify(int * array, int n, int i) {
 	if (iteratorRight < n && array[iteratorRight] > array[largest]) {
 		largest = iteratorRight;
 	}
-	if (largest != i) {
-		int temp = array[largest];
-		array[largest] = array[i];
-		array[i] = temp;
+	if (largest != i) {		
+        std::swap(array[largest], array[i]);
 		maxHeapify(array, n, largest);
-	}
+	}   
 }
 
 void buildMaxHeap(int * array, int heapSize) {
@@ -41,18 +39,17 @@ void buildMaxHeap(int * array, int heapSize) {
 
 void heapSort(int * array, int heapSize) {
 	buildMaxHeap(array, heapSize);
-	for (int i = heapSize; i >= 2; --i) {
-		int temp = array[0];
-		array[0] = array[i - 1];
-		array[i - 1] = temp;		
+	for (int i = heapSize - 1; i >= 1; --i) {		
+        std::swap(array[0], array[i]);
 		maxHeapify(array, i, 0);
 	}
 }
 
 void testHeapSort() {
-	int a[] = { 4, 1,3,2,5,9,10,6,8,7 };
+    //std::cout << "parent 2 =" << parent(2) << std::endl;
+    //std::cout << "left 2 =" << left(2) << std::endl;
+    //std::cout << "right 2 =" << right(2) << std::endl;
+	int a[] = { 4, 1,3, 2,9, 8,7,6,5,10 };
 	heapSort(a, 10);
-	for (auto e : a) {
-		std::cout << e << std::endl;
-	}
+    Tools::printArray(a, 10);
 }
