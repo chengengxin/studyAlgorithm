@@ -24,8 +24,17 @@ void partitionSort(int * a, int s, int e) {
     }
 }
 
+void partitionSort2(int * a, int s, int e) {
+    int m = s;
+    while (m < e) {
+        m = partition(a, s, e);
+        partitionSort(a, s, m - 1);
+        m += 1;
+    }
+}
+
 void testPartitionSort() {
     int a[] = { 4, 1,3, 2,9, 8,7,6,5,10 };
-    partitionSort(a, 0, 9);
+    partitionSort2(a, 0, 9);
     Tools::printArray(a, 10);
 }

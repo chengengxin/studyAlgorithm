@@ -6,13 +6,14 @@
 #include "algorithms/heap.h"
 #include "algorithms/partition.h"
 
-int main()
-{
-	//test_merge_sort1();
-	//test_inversion();
-	//testHeapSort();
+int main() {
+    std::cout << "press Enter over" << std::endl;
+    //test_merge_sort1();
+    //test_inversion();
+    //testHeapSort();
+
     testPartitionSort();
-	getchar();
+    getchar();
     return 0;
 }
 
