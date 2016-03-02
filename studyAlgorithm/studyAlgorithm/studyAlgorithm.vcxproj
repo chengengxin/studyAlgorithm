@@ -149,6 +149,7 @@
   <ItemGroup>
     <ClInclude Include="algorithms\heap.h" />
     <ClInclude Include="algorithms\merge.h" />
+    <ClInclude Include="algorithms\partition.h" />
     <ClInclude Include="common\tools.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
@@ -156,6 +157,7 @@
   <ItemGroup>
     <ClCompile Include="algorithms\heap.cpp" />
     <ClCompile Include="algorithms\merge.cpp" />
+    <ClCompile Include="algorithms\partition.cpp" />
     <ClCompile Include="common\tools.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

@@ -39,6 +39,9 @@
     <ClInclude Include="common\tools.h">
       <Filter>common</Filter>
     </ClInclude>
+    <ClInclude Include="algorithms\partition.h">
+      <Filter>algorithms</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -55,6 +58,9 @@
     </ClCompile>
     <ClCompile Include="common\tools.cpp">
       <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="algorithms\partition.cpp">
+      <Filter>algorithms</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -4,12 +4,14 @@
 #include "stdafx.h"
 #include "algorithms/merge.h"
 #include "algorithms/heap.h"
+#include "algorithms/partition.h"
 
 int main()
 {
 	//test_merge_sort1();
 	//test_inversion();
-	testHeapSort();
+	//testHeapSort();
+    testPartitionSort();
 	getchar();
     return 0;
 }
