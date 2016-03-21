@@ -49,7 +49,13 @@ void testHeapSort() {
     //std::cout << "parent 2 =" << parent(2) << std::endl;
     //std::cout << "left 2 =" << left(2) << std::endl;
     //std::cout << "right 2 =" << right(2) << std::endl;
-    int a[] = { 4, 1,3, 2,9, 8,7,6,5,10 };
-    heapSort(a, 10);
-    Tools::printArray(a, 10);
+    //int a[] = { 4, 1,3, 2,9, 8,7,6,5,10 };
+    std::vector<int> a= { 4, 1,3, 2,9, 8,7,6,5,10 };
+    //heapSort(a, 10);
+    std::vector<int>::iterator first = a.begin();
+    std::vector<int>::iterator last = a.end();
+    Heap<int> heap(first, last);
+    heap.sort();
+    Tools::printArray(a);
+    
 }

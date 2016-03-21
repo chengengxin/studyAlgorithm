@@ -15,7 +15,10 @@
 // TODO:  在此处引用程序需要的其他头文件
 #include <assert.h>
 
-
+#include <string>
 #include <iostream>
-
+#include <sstream>
+#include <vector>
+#include <algorithm>
+#include <functional>
 #include "common/tools.h"
