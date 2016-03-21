@@ -52,9 +52,7 @@ void testHeapSort() {
     //int a[] = { 4, 1,3, 2,9, 8,7,6,5,10 };
     std::vector<int> a= { 4, 1,3, 2,9, 8,7,6,5,10 };
     //heapSort(a, 10);
-    std::vector<int>::iterator first = a.begin();
-    std::vector<int>::iterator last = a.end();
-    Heap<int> heap(first, last);
+    Heap<int, std::greater<int>> heap(a.begin()+4, a.end());
     heap.sort();
     Tools::printArray(a);
     

@@ -10,9 +10,9 @@ int main() {
     std::cout << "press Enter over" << std::endl;
     //test_merge_sort1();
     //test_inversion();
-    //testHeapSort();
+    testHeapSort();
 
-    testPartitionSort();
+    //testPartitionSort();
     getchar();
     return 0;
 }

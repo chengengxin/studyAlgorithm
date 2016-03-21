@@ -2,6 +2,8 @@
 
 #pragma once
 
+#include <vector>
+
 int parent(int i);
 
 int left(int i);
@@ -16,50 +18,51 @@ void heapSort(int* array, int heapSize);
 
 void testHeapSort();
 
-template<typename T>
+template<typename T, typename compare>
 class Heap {
 public:
-    Heap(std::vector<T>::iterator& _first,
-        std::vector<T>::iterator& _last,
-        std::is_function<bool(T, T)> _compare = std::bind(std::less<T>()))
+    typedef typename std::vector<T>::iterator iterator;    
+    Heap(iterator& _first, iterator& _last)
     : first(_first)
     , last(_last)
-    , heapSize(std::distance(first, last))
-    , compare(_compare) {
+    , heapSize(std::distance(first, last)) {
     
     }
 
     void sort() {
         buildHeap();
-        for (int i = heapSize - 1; i >= 1; --i) {
+        for (--heapSize; heapSize >= 1; ) {
             T temp = *first;
-            *first = *(first + i);
-            *(first + i) = temp;
+            *first = *(first + heapSize);
+            *(first + heapSize) = temp;
+            --heapSize;
             heapify(first);
         }
     }
 
 private:
-    std::vector<T>::iterator parent(std::vector<T>::iterator i) {
+    iterator parent(iterator i) {
         return (std::distance(first, i) - 1 ) / 2 + first;
     }
 
-    std::vector<T>::iterator left(std::vector<T>::iterator i) {
-        return (std::distance(first, i) * 2 + 1) + first;
+    iterator left(iterator i) {
+        auto l = std::distance(first, i) * 2 + 1;
+        return l < heapSize ? l + first : last;
     }
 
-    std::vector<T>::iterator right(std::vector<T>::iterator i) {
-        return (std::distance(first, i) * 2 + 2) + first;
+    iterator right(iterator i) {
+        auto r = std::distance(first, i) * 2 + 2;
+        return r < heapSize ? r + first : last;
     }
 
-    void heapify(std::vector<T>::iterator i) {
+    void heapify(iterator i) {
         auto iteratorLeft = this->left(i);
         auto iteratorRight = this->right(i);
         auto largest = i;
-        if (std::distance(first, iteratorLeft) < heapSize && compare(*iteratorLeft, *i)) {
+        if (iteratorLeft < last && compare()(*iteratorLeft, *i)) {
             largest = iteratorLeft;
         }
-        if (std::distance(first, iteratorRight) < heapSize && compare(*iteratorRight, *largest)) {
+        if (iteratorRight < last && compare()(*iteratorRight, *largest)) {
             largest = iteratorRight;
         }
         if (largest != i) {
@@ -71,15 +74,13 @@ private:
     }
 
     void buildHeap() {
-        for (int i = (heapSize - 1) / 2; i >= 0; --i) {
+        for (std::ptrdiff_t i = (heapSize - 1) / 2; i >= 0; --i) {            
             heapify(first + i);
         }
     }
 
 private:
-    std::vector<T>::iterator& first;
-    std::vector<T>::iterator& last;
-    const std::iterator_traits<T>::difference_type heapSize;
-    std::is_function<bool(T, T)> compare;
-    
+    iterator first;
+    iterator last;
+    std::ptrdiff_t heapSize;
 };

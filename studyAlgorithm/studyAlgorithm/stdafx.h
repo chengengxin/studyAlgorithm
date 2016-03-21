@@ -21,4 +21,5 @@
 #include <vector>
 #include <algorithm>
 #include <functional>
+#include <iterator>
 #include "common/tools.h"
