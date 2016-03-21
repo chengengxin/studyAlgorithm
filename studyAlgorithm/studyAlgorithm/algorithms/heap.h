@@ -35,8 +35,8 @@ public:
             T temp = *first;
             *first = *(first + heapSize);
             *(first + heapSize) = temp;
-            --heapSize;
             heapify(first);
+            --heapSize;
         }
     }
 
