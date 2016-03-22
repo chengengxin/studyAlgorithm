@@ -18,10 +18,10 @@ void heapSort(int* array, int heapSize);
 
 void testHeapSort();
 
-template<typename T, typename compare>
+template<typename T, typename Compare>
 class Heap {
 public:
-    typedef typename std::vector<T>::iterator iterator;    
+    typedef typename std::vector<T>::iterator iterator;
     Heap(iterator& _first, iterator& _last)
     : first(_first)
     , last(_last)
@@ -31,10 +31,9 @@ public:
 
     void sort() {
         buildHeap();
-        for (--heapSize; heapSize >= 1; ) {
-            T temp = *first;
-            *first = *(first + heapSize);
-            *(first + heapSize) = temp;
+        --heapSize;
+        while (heapSize >= 1;) {
+            std::swap(*first, *(first + heapSize));
             heapify(first);
             --heapSize;
         }
@@ -59,22 +58,20 @@ private:
         auto iteratorLeft = this->left(i);
         auto iteratorRight = this->right(i);
         auto largest = i;
-        if (iteratorLeft < last && compare()(*iteratorLeft, *i)) {
+        if (iteratorLeft < last && compare(*iteratorLeft, *i)) {
             largest = iteratorLeft;
         }
-        if (iteratorRight < last && compare()(*iteratorRight, *largest)) {
+        if (iteratorRight < last && compare(*iteratorRight, *largest)) {
             largest = iteratorRight;
         }
         if (largest != i) {
-            T temp = *largest;
-            *largest = *i;
-            *i = temp;
+            std::swap(*largest, *i);
             heapify(largest);
         }
     }
 
     void buildHeap() {
-        for (std::ptrdiff_t i = (heapSize - 1) / 2; i >= 0; --i) {            
+        for (std::ptrdiff_t i = (heapSize - 1) / 2; i >= 0; --i) {
             heapify(first + i);
         }
     }
@@ -83,4 +80,5 @@ private:
     iterator first;
     iterator last;
     std::ptrdiff_t heapSize;
+    Compare compare;
 };
